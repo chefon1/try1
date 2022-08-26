@@ -40,6 +40,9 @@ jobs:
       - name: Lint
         run: ssh staging 'cd ~/try1 && npm run lint'
 
+      - name: build
+        run: ssh staging 'cd ~/try1 && npm run build'
+
       - name: Start the app
         timeout-minutes: 1 # Times out after 1 minute
         run: ssh staging 'cd ~/try1 && npm run start&'
