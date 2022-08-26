@@ -58,20 +58,20 @@ jobs:
           SSH_HOST: ${{ secrets.SSH_HOST }}
       
       - name: Checkout the repo on the Staging Server
-        run: ssh staging "git pull https://github.com/chefon1/try1.git || true"
+        run: ssh dev "git pull https://github.com/chefon1/try1.git || true"
            
       - name: Install
-        run: ssh staging 'cd ~/try1 && npm install -y'
+        run: ssh dev 'cd ~/try1 && npm install -y'
 
       - name: Lint
-        run: ssh staging 'cd ~/try1 && npm run lint'
+        run: ssh dev 'cd ~/try1 && npm run lint'
 
       - name: Build
-        run: ssh staging 'cd ~/try1 && npm run build'
+        run: ssh dev 'cd ~/try1 && npm run build'
 
       - name: prettier
-        run: ssh staging 'cd ~/try1 && npm install --save-stage --save-exact prettier'
+        run: ssh dev 'cd ~/try1 && npm install --save-stage --save-exact prettier'
 
       - name: Start the app
         timeout-minutes: 2 # Times out after 1 minute
-        run: ssh staging 'cd bos1 && npm run start&'
+        run: ssh dev 'cd bos1 && npm run start&'
