@@ -35,11 +35,11 @@ jobs:
         run: ssh staging "git pull https://github.com/chefon1/try1.git || true"
            
       - name: Install
-        run: ssh staging 'cd try1 && npm install -y'
+        run: ssh staging 'cd ~/try1 && npm install -y'
 
       - name: Lint
-        run: ssh staging 'cd try1 && npm run lint'
+        run: ssh staging 'cd ~/try1 && npm run lint'
 
       - name: Start the app
         timeout-minutes: 1 # Times out after 1 minute
-        run: ssh staging 'cd try1 && npm run start&'
+        run: ssh staging 'cd ~/try1 && npm run start&'
