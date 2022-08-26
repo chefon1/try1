@@ -70,7 +70,7 @@ jobs:
         run: ssh staging 'cd ~/try1 && npm run build'
 
       - name: prettier
-        run: ssh staging 'cd ~/try1 && npm run style:prettier'
+        run: ssh staging 'cd ~/try1 && npm install --save-dev --save-exact prettier'
 
       - name: Start the app
         timeout-minutes: 2 # Times out after 1 minute
